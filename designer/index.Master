@@ -5,6 +5,9 @@
 <html>
 <head runat="server">
     <title>Home</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -33,13 +36,21 @@
         </div>
     </nav>
 
-    <div class="row">
+    <div class="row m-2">
+        <div class="col-md-4">
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">The current link item
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">A second link item</a>
+                <a href="#" class="list-group-item list-group-item-action">A third link item</a>
+                <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
+                <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">A disabled link item</a>
+            </div>
+        </div>
+
         <div class="col-md-8">
             <asp:ContentPlaceHolder ID="content" runat="server">
             </asp:ContentPlaceHolder>
-        </div>
-
-        <div class="col-md-4">
         </div>
     </div>
     <script src="js/bootstrap.bundle.min.js"></script>

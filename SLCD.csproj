@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="designer\css\bootstrap.min.css" />
     <Content Include="designer\home.aspx" />
+    <Content Include="designer\img\logic.png" />
     <Content Include="designer\js\bootstrap.bundle.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -100,7 +101,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="designer\img\" />
     <Folder Include="designer\template\" />
   </ItemGroup>
   <PropertyGroup>

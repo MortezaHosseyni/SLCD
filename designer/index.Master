@@ -13,46 +13,67 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-
-    <nav class="navbar navbar-expand-lg bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand text-danger" href="#">SLCD</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link text-white" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Donate</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">About</a>
-                    </li>
-                </ul>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand text-danger" href="#">SLCD</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">Donate</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">About</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
     <div class="row m-2">
         <div class="col-md-4">
             <div class="list-group">
-                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">The current link item
-                </a>
-                <a href="#" class="list-group-item list-group-item-action">A second link item</a>
-                <a href="#" class="list-group-item list-group-item-action">A third link item</a>
-                <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
-                <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">A disabled link item</a>
+                <%while (cgData.Read())
+                    { %>
+
+
+                <a class="list-group-item list-group-item-action active mt-4" data-bs-toggle="collapse" data-bs-target="#category_posts_<%=cgData["CG_ID"] %>" aria-expanded="false" aria-controls="category_posts"><%=cgData["CG_Name"] %></a>
+
+                <div class="collapse multi-collapse" id="category_posts_<%=cgData["CG_ID"] %>">
+                    <% getPosts();
+                        while (ctData.Read())
+                        { %>
+
+
+                    <a class="text-decoration-none text-dark" href="../designer/post.aspx?pid=<%=ctData["CT_ID"] %>"><span class="card card-body">
+                        <%=ctData["CT_Name"] %>
+                    </span></a>
+                    <%  } %>
+                </div>
+
+                <% } %>
             </div>
         </div>
 
-        <div class="col-md-8">
+        <div class="col-md-8 text-center mt-4">
             <asp:ContentPlaceHolder ID="content" runat="server">
             </asp:ContentPlaceHolder>
         </div>
     </div>
+
+    <footer>
+        <div class="w-100 bg-dark text-center p-4 fixed-bottom">
+            <span class="text-white">Simple Logic Circut Designer - 2022 &copy;</span>
+        </div>
+    </footer>
+
     <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

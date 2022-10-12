@@ -84,13 +84,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="designer\css\bootstrap.min.css" />
+    <Content Include="designer\css\style.css" />
     <Content Include="designer\home.aspx" />
+    <Content Include="designer\img\copy.png" />
     <Content Include="designer\img\logic.png" />
     <Content Include="designer\js\bootstrap.bundle.min.js" />
     <Content Include="designer\post.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="classes\circut\ccOp.cs" />
+    <Compile Include="classes\circut\ccProcess.cs" />
     <Compile Include="classes\database\dbConnection.cs" />
     <Compile Include="classes\database\dbProccess.cs" />
     <Compile Include="designer\home.aspx.cs">
@@ -119,6 +123,7 @@
   <ItemGroup>
     <Content Include="designer\index.Master" />
     <Content Include="classes\database\SLCD.db" />
+    <Content Include="designer\css\NesiaSans.otf" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

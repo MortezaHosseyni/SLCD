@@ -1,10 +1,13 @@
-﻿using SLCD.classes.database;
+﻿using SLCD.classes.circut;
+using SLCD.classes.database;
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace SLCD.designer
@@ -13,9 +16,28 @@ namespace SLCD.designer
     {
         public SQLiteDataReader pData;
         public int cCount;
+        public string pid;
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            string pid = Request.QueryString["pid"];
+            //Get Post ID
+            pid = Request.QueryString["pid"];
+
+            //Fill Post Page
+            fillData();
+
+            //Check Inputs
+            checkInputs();
+        }
+
+
+
+
+
+
+        public void fillData()
+        {
             if (dbConnection.dbTest())
             {
                 pData = dbProccess.readData(dbConnection.conn, "TB_Circuts", $"CT_ID = {pid}");
@@ -35,6 +57,30 @@ namespace SLCD.designer
                     lbl_PostFormul.InnerText = "Formul: " + (string)pData["CT_Formul"];
                 }
             }
+        }
+
+
+        public void checkInputs()
+        {
+            switch (cCount)
+            {
+                case 2: inp_z.Visible = false; inp_w.Visible = false; break;
+                case 3: inp_w.Visible = false; break;
+                default: break;
+            }
+        }
+
+
+        public void btn_Process_Click(object sender, EventArgs e)
+        {
+            sbyte[] inps = {
+                Convert.ToSByte(inp_1.SelectedIndex),
+                Convert.ToSByte(inp_2.SelectedIndex),
+                Convert.ToSByte(inp_3.SelectedIndex),
+                Convert.ToSByte(inp_4.SelectedIndex)
+            };
+
+            txt_results.Value = ccProcess.circutProcess(inps);
         }
     }
 }

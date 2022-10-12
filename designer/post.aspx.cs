@@ -80,7 +80,7 @@ namespace SLCD.designer
                 Convert.ToSByte(inp_4.SelectedIndex)
             };
 
-            txt_results.Value = ccProcess.circutProcess(inps, lbl_PostFormul.InnerText, cCount);
+            txt_results.Value = ccProcess.circutProcess(inps, lbl_PostFormul.InnerText, cCount, pid);
         }
     }
 }

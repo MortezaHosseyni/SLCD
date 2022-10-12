@@ -96,13 +96,13 @@ namespace SLCD.designer
         protected global::System.Web.UI.HtmlControls.HtmlSelect inp_2;
 
         /// <summary>
-        /// inp_z control.
+        /// inp_w control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl inp_z;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl inp_w;
 
         /// <summary>
         /// inp_3 control.
@@ -114,13 +114,13 @@ namespace SLCD.designer
         protected global::System.Web.UI.HtmlControls.HtmlSelect inp_3;
 
         /// <summary>
-        /// inp_w control.
+        /// inp_z control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl inp_w;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl inp_z;
 
         /// <summary>
         /// inp_4 control.

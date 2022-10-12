@@ -10,8 +10,8 @@
     <img class="w-100" id="img_PostImage" runat="server" />
     <h1 id="lbl_PostName" runat="server"></h1>
     <div class="row">
-        <span class="col" id="lbl_PostFormul" runat="server">Formul: </span>
-        <span class="col" id="lbl_PostInputs" runat="server">Inputs: </span>
+        <label class="col">Formula: <span id="lbl_PostFormul" runat="server"></span></label>
+        <label class="col">Inputs: <span id="lbl_PostInputs" runat="server"></span></label>
     </div>
     <hr />
     <form runat="server" method="post" id="process_table" class="container">
@@ -36,9 +36,9 @@
                 </select>
             </div>
 
-            <div class="col" id="inp_z" runat="server">
+            <div class="col" id="inp_w" runat="server">
                 <div class="input-group-prepend">
-                    <label class="input-group-text" for="inp_3">Input Z</label>
+                    <label class="input-group-text" for="inp_3">Input W</label>
                 </div>
                 <select class="form-select sel" id="inp_3" runat="server">
                     <option value="2">0</option>
@@ -46,15 +46,16 @@
                 </select>
             </div>
 
-            <div class="col" id="inp_w" runat="server">
+            <div class="col" id="inp_z" runat="server">
                 <div class="input-group-prepend">
-                    <label class="input-group-text" for="inp_4">Input W</label>
+                    <label class="input-group-text" for="inp_4">Input Z</label>
                 </div>
                 <select class="form-select sel" id="inp_4" runat="server">
                     <option value="2">0</option>
                     <option value="3">1</option>
                 </select>
             </div>
+
         </div>
         <div class="input-group mb-3">
             <asp:Button CssClass="btn btn-outline-secondary bg-success text-white" ID="btn_Process" OnClick="btn_Process_Click" Text="Process" runat="server" />

@@ -53,8 +53,8 @@ namespace SLCD.designer
                     cCount = Convert.ToInt32(pData["CT_InputCount"]);
 
                     lbl_PostName.InnerText = (string)pData["CT_Name"];
-                    lbl_PostInputs.InnerText = "Inputs: " + inputs;
-                    lbl_PostFormul.InnerText = "Formul: " + (string)pData["CT_Formul"];
+                    lbl_PostInputs.InnerText = inputs;
+                    lbl_PostFormul.InnerText = (string)pData["CT_Formul"];
                 }
             }
         }
@@ -64,8 +64,8 @@ namespace SLCD.designer
         {
             switch (cCount)
             {
-                case 2: inp_z.Visible = false; inp_w.Visible = false; break;
-                case 3: inp_w.Visible = false; break;
+                case 2: inp_w.Visible = false; inp_z.Visible = false; break;
+                case 3: inp_z.Visible = false; break;
                 default: break;
             }
         }
@@ -80,7 +80,7 @@ namespace SLCD.designer
                 Convert.ToSByte(inp_4.SelectedIndex)
             };
 
-            txt_results.Value = ccProcess.circutProcess(inps);
+            txt_results.Value = ccProcess.circutProcess(inps, lbl_PostFormul.InnerText, cCount);
         }
     }
 }

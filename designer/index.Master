@@ -23,17 +23,17 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item border-start border-secondary border-secondary ps-2 mt-2">
+                        <li class="nav-item border-start border-secondary ps-2 mt-2">
                             <a class="nav-link active text-white" aria-current="page" href="../designer/home.aspx">Home</a>
                         </li>
-                        <li class="nav-item border-start border-secondary border-secondary ps-2 mt-2 ms-2">
+                        <li class="nav-item border-start border-secondary ps-2 mt-2 ms-2">
                             <a class="nav-link text-white" href="#">Donate</a>
                         </li>
-                        <li class="nav-item border-start border-secondary border-secondary ps-2 mt-2 ms-2">
+                        <li class="nav-item border-start border-secondary ps-2 mt-2 ms-2">
                             <a class="nav-link text-white" href="#">About</a>
                         </li>
                         <li class="nav-item border-start border-secondary ps-2 mt-2 ms-2">
-                            <a class="nav-link text-warning" href="../designer/userarea/login.aspx">Login</a>
+                            <a class="nav-link text-warning" target="_blank" href="../designer/userarea/login.aspx?ssid=<%=sesionID %>">Login</a>
                         </li>
                     </ul>
                 </div>

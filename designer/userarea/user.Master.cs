@@ -11,7 +11,7 @@ namespace SLCD.designer.userarea
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            lbl_LogName.InnerText = Request.QueryString["user"];
         }
     }
 }

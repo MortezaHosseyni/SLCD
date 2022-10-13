@@ -34,7 +34,7 @@
                             <a class="nav-link text-white" href="#">About</a>
                         </li>
                         <li class="nav-item border-start border-white ps-2 mt-2 ms-2">
-                            <a class="nav-link text-warning" href="../designer/userarea/userpanel.aspx">Username</a>
+                            <p class="nav-link text-warning" id="lbl_LogName" runat="server">Username</p>
                         </li>
                     </ul>
                 </div>

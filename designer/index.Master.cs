@@ -13,8 +13,10 @@ namespace SLCD.designer
     {
         public SQLiteDataReader cgData;
         public SQLiteDataReader ctData;
+        public string sesionID;
         protected void Page_Load(object sender, EventArgs e)
         {
+            sesionID = this.Session.SessionID; 
             if (dbConnection.dbTest())
             {
                 cgData = dbProccess.readData(dbConnection.conn, "TB_Category");

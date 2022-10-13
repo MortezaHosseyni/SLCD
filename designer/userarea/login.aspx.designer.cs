@@ -15,6 +15,33 @@ namespace SLCD.designer.userarea
     {
 
         /// <summary>
+        /// mbox_Empty control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl mbox_Empty;
+
+        /// <summary>
+        /// mbox_Error control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl mbox_Error;
+
+        /// <summary>
+        /// mbox_Success control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl mbox_Success;
+
+        /// <summary>
         /// txt_Username control.
         /// </summary>
         /// <remarks>

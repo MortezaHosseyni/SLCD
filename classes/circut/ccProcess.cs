@@ -29,7 +29,7 @@ namespace SLCD.classes.circut
                         xNOT = input[0], yNOT = input[1], wNOT = input[2], zNOT = input[3],
                         xAND = 0, yAND = 0, wAND = 0, zAND = 0,
                          xOR = 0, yOR = 0, wOR = 0, zOR = 0;
-                    
+
                     string twiName = "";
                     int twiOP = 0; //0-> AND, 1-> OR
 
@@ -391,7 +391,7 @@ namespace SLCD.classes.circut
                 int y = formul.IndexOf("Y"); formul = formul.Remove(y, "Y".Length).Insert(y, input[1].ToString());
                 int w = formul.IndexOf("W"); formul = formul.Remove(w, "W".Length).Insert(w, input[2].ToString());
 
-                sbyte result1 = 0, result2 = 0, result3 = 0;
+                sbyte resultXY = 0, resultXW = 0, resultYW = 0, resultTotal = 0;
 
                 if (dbConnection.dbTest())
                 {
@@ -401,10 +401,12 @@ namespace SLCD.classes.circut
                         xAND = 0, yAND = 0, wAND = 0,
                          xOR = 0, yOR = 0, wOR = 0;
 
-
+                    string twoName = "";
+                    int twoOP = 0; //0-> AND | 1-> OR
 
                     while (data.Read())
                     {
+                        #region ReadData
                         //X
                         if (data["IN_Name"].ToString() == "X")
                         {
@@ -422,7 +424,6 @@ namespace SLCD.classes.circut
                                 xOR = Convert.ToInt32(data["IN_OR"]);
                             }
                         }
-                        //X
 
                         //Y
                         if (data["IN_Name"].ToString() == "Y")
@@ -441,7 +442,6 @@ namespace SLCD.classes.circut
                                 yOR = Convert.ToInt32(data["IN_OR"]);
                             }
                         }
-                        //Y
 
                         //W
                         if (data["IN_Name"].ToString() == "W")
@@ -460,99 +460,96 @@ namespace SLCD.classes.circut
                                 wOR = Convert.ToInt32(data["IN_OR"]);
                             }
                         }
-                        //W
 
-                        //Process
-                        #region Process 1
-                        if (xAND == yID || yAND == xID) //AND
+                        if (data["IN_IsAND"].ToString() != "")
                         {
-                            result1 = ccOp.andOP(input[0], input[1]);
+                            twoName = data["IN_Name"].ToString();
+                            twoOP = 0;
                         }
-                        else
+                        if (data["IN_IsOR"].ToString() != "")
                         {
-                            result2 = input[2];
-                        }
-                        if (xAND == wID || wAND == xID)
-                        {
-                            result1 = ccOp.andOP(input[0], input[2]);
-                        }
-                        else
-                        {
-                            result2 = input[1];
-                        }
-                        if (yAND == wID || wAND == yID)
-                        {
-                            result1 = ccOp.andOP(input[1], input[2]);
-                        }
-                        else
-                        {
-                            result2 = input[0];
-                        }
-
-                        if (xOR == yID || yOR == xID) //OR
-                        {
-                            result1 = ccOp.orOP(input[0], input[1]);
-                        }
-                        else
-                        {
-                            result2 = input[2];
-                        }
-                        if (xOR == wID || wOR == xID)
-                        {
-                            result1 = ccOp.orOP(input[0], input[2]);
-                        }
-                        else
-                        {
-                            result2 = input[1];
-                        }
-                        if (yOR == wID || wOR == yID)
-                        {
-                            result1 = ccOp.orOP(input[1], input[2]);
-                        }
-                        else
-                        {
-                            result2 = input[0];
-                        }
-                        #endregion
-
-                        #region Process 2
-                        if (result2 == input[2])
-                        {
-                            if (xAND == wID && yAND == wID)
-                            {
-                                result3 = ccOp.andOP(result1, result2);
-                            }
-                            if (xOR == wID && yOR == wID)
-                            {
-                                result3 = ccOp.orOP(result1, result2);
-                            }
-                        }
-                        if (result2 == input[1])
-                        {
-                            if (xAND == yID && wAND == yID)
-                            {
-                                result3 = ccOp.andOP(result1, result2);
-                            }
-                            if (xOR == yID && wOR == yID)
-                            {
-                                result3 = ccOp.orOP(result1, result2);
-                            }
-                        }
-                        if (result2 == input[0])
-                        {
-                            if (yAND == xID && wAND == xID)
-                            {
-                                result3 = ccOp.andOP(result1, result2);
-                            }
-                            if (yOR == xID && wOR == xID)
-                            {
-                                result3 = ccOp.orOP(result1, result2);
-                            }
+                            twoName = data["IN_Name"].ToString();
+                            twoOP = 1;
                         }
                         #endregion
                     }
+                    #region Process 1
+                    if (xAND == yID || yAND == xID) //AND
+                    {
+                        resultXY = ccOp.andOP((sbyte)xNOT, (sbyte)yNOT);
+                    }
+                    if (xAND == wID || wAND == xID)
+                    {
+                        resultXW = ccOp.andOP((sbyte)xNOT, (sbyte)wNOT);
+                    }
+                    if (yAND == wID || wAND == yID)
+                    {
+                        resultYW = ccOp.andOP((sbyte)yNOT, (sbyte)wNOT);
+                    }
+
+                    
+                    
+                    
+                    
+                    if (xOR == yID || yOR == xID) //OR
+                    {
+                        resultXY = ccOp.orOP((sbyte)xNOT, (sbyte)yNOT);
+                    }
+                    
+                    if (xOR == wID || wOR == xID)
+                    {
+                        resultXW = ccOp.orOP((sbyte)xNOT, (sbyte)wNOT);
+                    }
+                    
+                    if (yOR == wID || wOR == yID)
+                    {
+                        resultYW = ccOp.orOP((sbyte)yNOT, (sbyte)wNOT);
+                    }
+                    #endregion
+
+                    #region Process 2
+                    switch (twoName)
+                    {
+                        case "W-XY":
+                        case "XY-W":
+                            if (twoOP == 0)
+                            {
+                                resultTotal = ccOp.andOP(resultXY, (sbyte)wNOT);
+                            }
+                            if (twoOP == 1)
+                            {
+                                resultTotal = ccOp.orOP(resultXY, (sbyte)wNOT);
+                            }
+                            break;
+
+                        case "Y-XW":
+                        case "XW-Y":
+                            if (twoOP == 0)
+                            {
+                                resultTotal = ccOp.andOP(resultXW, (sbyte)yNOT);
+                            }
+                            if (twoOP == 1)
+                            {
+                                resultTotal = ccOp.orOP(resultXW, (sbyte)yNOT);
+                            }
+                            break;
+
+                        case "X-YW":
+                        case "YW-X":
+                            if (twoOP == 0)
+                            {
+                                resultTotal = ccOp.andOP(resultYW, (sbyte)xNOT);
+                            }
+                            if (twoOP == 1)
+                            {
+                                resultTotal = ccOp.orOP(resultYW, (sbyte)xNOT);
+                            }
+                            break;
+                        default: break;
+                    }
+                    #endregion
                 }
-                return formul + " = " + result3.ToString();
+                return formul + " = " + resultTotal.ToString();
             }
 
             if (inCount >= 2)

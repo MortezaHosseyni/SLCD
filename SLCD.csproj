@@ -90,6 +90,7 @@
     <Content Include="designer\img\logic.png" />
     <Content Include="designer\js\bootstrap.bundle.min.js" />
     <Content Include="designer\post.aspx" />
+    <Content Include="designer\userarea\login.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -118,6 +119,13 @@
     <Compile Include="designer\post.aspx.designer.cs">
       <DependentUpon>post.aspx</DependentUpon>
     </Compile>
+    <Compile Include="designer\userarea\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="designer\userarea\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -133,7 +141,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="designer\template\" />
     <Folder Include="resources\pictures\" />
   </ItemGroup>
   <PropertyGroup>

@@ -91,6 +91,7 @@
     <Content Include="designer\js\bootstrap.bundle.min.js" />
     <Content Include="designer\post.aspx" />
     <Content Include="designer\userarea\login.aspx" />
+    <Content Include="designer\userarea\userpanel.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -126,12 +127,27 @@
     <Compile Include="designer\userarea\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="designer\userarea\user.Master.cs">
+      <DependentUpon>user.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="designer\userarea\user.Master.designer.cs">
+      <DependentUpon>user.Master</DependentUpon>
+    </Compile>
+    <Compile Include="designer\userarea\userpanel.aspx.cs">
+      <DependentUpon>userpanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="designer\userarea\userpanel.aspx.designer.cs">
+      <DependentUpon>userpanel.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="designer\index.Master" />
     <Content Include="classes\database\SLCD.db" />
     <Content Include="designer\css\NesiaSans.otf" />
+    <Content Include="designer\userarea\user.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

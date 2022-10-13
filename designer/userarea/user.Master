@@ -1,0 +1,69 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="user.master.cs" Inherits="SLCD.designer.userarea.user" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/style.css" rel="stylesheet" />
+    <title>User Panel</title>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+            <div class="container-fluid">
+                <a class="navbar-brand text-danger mt-2" href="#">SLCD</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon "></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item border-start border-white ps-2 mt-2">
+                            <a class="nav-link active text-white" aria-current="page" target="_blank" href="../../designer/home.aspx">Home</a>
+                        </li>
+                        <li class="nav-item border-start border-white ps-2 mt-2 ms-2">
+                            <a class="nav-link text-white" href="#">Setting</a>
+                        </li>
+                        <li class="nav-item border-start border-white ps-2 mt-2 ms-2">
+                            <a class="nav-link text-white" href="#">About</a>
+                        </li>
+                        <li class="nav-item border-start border-white ps-2 mt-2 ms-2">
+                            <a class="nav-link text-warning" href="../designer/userarea/userpanel.aspx">Username</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="row">
+        <div class="col-4">
+        </div>
+
+
+        <div class="col">
+            <asp:ContentPlaceHolder ID="panel_content" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+
+
+
+    <footer class="bg-light text-center text-lg-start mt-5">
+        <!-- Copyright -->
+        <div class="bg-dark text-white text-center p-3">
+            Simple Logic Circut Designer - 2022 &copy;
+        </div>
+        <!-- Copyright -->
+    </footer>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -17,7 +17,7 @@ namespace SLCD.designer
         {
             if (dbConnection.dbTest())
             {
-                pData = dbProccess.readData(dbConnection.conn, "TB_Circuts");
+                pData = dbProccess.readData(dbConnection.conn, "TB_Circuts" , "CT_Enable = 1");
             }
         }
     }

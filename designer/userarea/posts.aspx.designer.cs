@@ -11,7 +11,7 @@ namespace SLCD.designer.userarea
 {
 
 
-    public partial class userpanel
+    public partial class posts
     {
 
         /// <summary>

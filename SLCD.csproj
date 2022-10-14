@@ -91,6 +91,7 @@
     <Content Include="designer\js\bootstrap.bundle.min.js" />
     <Content Include="designer\post.aspx" />
     <Content Include="designer\userarea\login.aspx" />
+    <Content Include="designer\userarea\posts.aspx" />
     <Content Include="designer\userarea\userpanel.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -99,7 +100,6 @@
     <Compile Include="classes\circut\ccProcess.cs" />
     <Compile Include="classes\database\dbConnection.cs" />
     <Compile Include="classes\database\dbProccess.cs" />
-    <Compile Include="classes\gbVb.cs" />
     <Compile Include="designer\home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -127,6 +127,13 @@
     </Compile>
     <Compile Include="designer\userarea\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="designer\userarea\posts.aspx.cs">
+      <DependentUpon>posts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="designer\userarea\posts.aspx.designer.cs">
+      <DependentUpon>posts.aspx</DependentUpon>
     </Compile>
     <Compile Include="designer\userarea\user.Master.cs">
       <DependentUpon>user.Master</DependentUpon>

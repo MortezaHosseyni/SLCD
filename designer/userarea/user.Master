@@ -46,12 +46,16 @@
     </header>
 
 
-    <div class="row">
-        <div class="col-4">
+    <div class="row m-2">
+        <div class="col-sm-8 col-md-4">
+            <ul class="list-group">
+                <a class="text-decoration-none" href="../userarea/posts.aspx?show=all"><li class="list-group-item mb-1">All Circuts</li></a>
+                <a class="text-decoration-none" href="../userarea/posts.aspx?show=disabled"><li class="list-group-item mb-1">Disabled Circuts</li></a>
+            </ul>
         </div>
 
 
-        <div class="col">
+        <div class="col-sm-4 col-md-8">
             <asp:ContentPlaceHolder ID="panel_content" runat="server">
             </asp:ContentPlaceHolder>
         </div>

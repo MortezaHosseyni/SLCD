@@ -64,5 +64,12 @@
                 <img width="22" src="img/copy.png" />
             </button>
         </div>
+        <div class="input-group mb-3">
+            <asp:Button CssClass="w-100 btn btn-outline-secondary bg-success text-white" ID="btn_TrueTable" Text="True Table" runat="server" />
+        </div>
+        <div class="input-group row mb-3" runat="server" id="div_Enable" visible="false">
+            <asp:Button CssClass="btn col btn-outline-secondary bg-primary text-white ms-2" ID="btn_Enable" OnClick="btn_Enable_Click" Text="Enable" runat="server" />
+            <asp:Button CssClass="btn col btn-outline-secondary bg-danger text-white ms-2" ID="btn_Disable" OnClick="btn_Disable_Click" Text="Disable" runat="server" />
+        </div>
     </form>
 </asp:Content>

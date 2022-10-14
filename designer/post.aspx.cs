@@ -6,6 +6,7 @@ using System.Data.SQLite;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Web;
+using System.Web.SessionState;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
@@ -29,6 +30,9 @@ namespace SLCD.designer
 
             //Check Inputs
             checkInputs();
+
+            //Check Login
+            checkLogin();
         }
 
 
@@ -81,6 +85,56 @@ namespace SLCD.designer
             };
 
             txt_results.Value = ccProcess.circutProcess(inps, lbl_PostFormul.InnerText, cCount, pid);
+        }
+
+
+
+        public void checkLogin()
+        {
+            SessionIDManager manager = new SessionIDManager();
+            string sid = manager.GetSessionID(HttpContext.Current);
+            if (dbConnection.dbTest())
+            {
+                SQLiteDataReader logOn = dbProccess.readData(dbConnection.conn, "TB_LoginLog", $"LL_SessionID = '{sid}'");
+                if (logOn.StepCount <= 0)
+                {
+                    return;
+                }
+                if (logOn.StepCount > 0)
+                {
+                    logOn.Read();
+                    if (logOn["LL_LogoutDate"].ToString() == "")
+                    {
+                        div_Enable.Visible = true;
+                        return;
+                    }
+                    return;
+                }
+            }
+        }
+
+        protected void btn_Enable_Click(object sender, EventArgs e)
+        {
+            if (dbConnection.dbTest())
+            {
+                if (dbProccess.updateData(dbConnection.conn, "TB_Circuts", "CT_Enable = 1", $"CT_ID = {pid}"))
+                {
+                    Response.Write("<script> alert('Post enabled!') </script>");
+                    Response.End();
+                }
+            }
+        }
+
+        protected void btn_Disable_Click(object sender, EventArgs e)
+        {
+            if (dbConnection.dbTest())
+            {
+                if (dbProccess.updateData(dbConnection.conn, "TB_Circuts", "CT_Enable = 0", $"CT_ID = {pid}"))
+                {
+                    Response.Write("<script> alert('Post disabled!') </script>");
+                    Response.End();
+                }
+            }
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/designer/userarea/user.Master" AutoEventWireup="true" CodeBehind="userpanel.aspx.cs" Inherits="SLCD.designer.userarea.userpanel" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/designer/userarea/user.Master" AutoEventWireup="true" CodeBehind="posts.aspx.cs" Inherits="SLCD.designer.userarea.posts" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 

@@ -99,6 +99,7 @@
     <Compile Include="classes\circut\ccProcess.cs" />
     <Compile Include="classes\database\dbConnection.cs" />
     <Compile Include="classes\database\dbProccess.cs" />
+    <Compile Include="classes\gbVb.cs" />
     <Compile Include="designer\home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

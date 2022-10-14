@@ -33,8 +33,11 @@
                         <li class="nav-item border-start border-white ps-2 mt-2 ms-2">
                             <a class="nav-link text-white" href="#">About</a>
                         </li>
-                        <li class="nav-item border-start border-white ps-2 mt-2 ms-2">
-                            <p class="nav-link text-warning" id="lbl_LogName" runat="server">Username</p>
+                        <li class="nav-item border-start row border-white ps-2 mt-2 ms-2">
+                            <span class="nav-link text-warning col" id="lbl_LogName" runat="server">Username</span>
+                            <form class="col" method="post" runat="server">
+                                <asp:Button CssClass="nav-link text-warning" ID="btn_LogOut" runat="server" Text="Logout" OnClick="btn_LogOut_Click"></asp:Button>
+                            </form>
                         </li>
                     </ul>
                 </div>

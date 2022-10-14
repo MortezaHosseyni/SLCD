@@ -22,5 +22,35 @@ namespace SLCD.classes.database
                 return null;
             }
         }
+
+        public static bool saveData(SQLiteConnection conn, string tbName, string dtFields, string dtValues)
+        {
+            SQLiteCommand cmd = new SQLiteCommand($"INSERT INTO {tbName} ({dtFields}) VALUES ({dtValues})", conn);
+
+            try
+            {
+                cmd.ExecuteReader();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public static bool updateData(SQLiteConnection conn, string tbName, string dtFields, string tbCondition)
+        {
+            SQLiteCommand cmd = new SQLiteCommand($"UPDATE {tbName} SET {dtFields} WHERE {tbCondition}", conn);
+
+            try
+            {
+                cmd.ExecuteReader();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

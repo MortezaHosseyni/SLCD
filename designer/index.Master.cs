@@ -19,7 +19,7 @@ namespace SLCD.designer
         {
             if (dbConnection.dbTest())
             {
-                cgData = dbProccess.readData(dbConnection.conn, "TB_Category");
+                cgData = dbProccess.readData(dbConnection.conn, "TB_Category" , "CG_Enable = 1");
             }
 
             checkLogin();

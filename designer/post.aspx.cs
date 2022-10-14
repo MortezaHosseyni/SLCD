@@ -16,6 +16,8 @@ namespace SLCD.designer
     public partial class post : System.Web.UI.Page
     {
         public SQLiteDataReader pData;
+        public SQLiteDataReader tData;
+
         public int cCount;
         public string pid;
 
@@ -33,6 +35,7 @@ namespace SLCD.designer
 
             //Check Login
             checkLogin();
+
         }
 
 
@@ -133,6 +136,65 @@ namespace SLCD.designer
                 {
                     Response.Write("<script> alert('Post disabled!') </script>");
                     Response.End();
+                }
+            }
+        }
+
+        protected void btn_TrueTable_Click(object sender, EventArgs e)
+        {
+            tData = dbProccess.readData(dbConnection.conn, "TB_TrueTable", $"TT_CircutID = {pid}");
+            if (tData.StepCount > 0)
+            {
+                return;
+            }
+            else
+            {
+                if (Convert.ToInt32(lbl_PostInputs.InnerText) >= 4)
+                {
+                    List<string> tab = ccTrueTable.tTable(pid, Convert.ToInt32(lbl_PostInputs.InnerText));
+
+                    foreach (var item in tab)
+                    {
+                        string x = item.Split('-')[0];
+                        string y = item.Split('-')[1];
+                        string w = item.Split('-')[2];
+                        string z = item.Split('-')[3].Split('=')[0];
+                        string result = item.Split('=')[1];
+
+                        dbProccess.saveData(dbConnection.conn, "TB_TrueTable", "TT_X, TT_Y, TT_W, TT_Z, TT_Result, TT_CircutID", $"{x}, {y}, {w}, {z}, {result}, {Convert.ToInt32(pid)}");
+                    }
+                    tData = dbProccess.readData(dbConnection.conn, "TB_TrueTable", $"TT_CircutID = {pid}");
+                }
+
+                if (Convert.ToInt32(lbl_PostInputs.InnerText) >= 3)
+                {
+                    List<string> tab = ccTrueTable.tTable(pid, Convert.ToInt32(lbl_PostInputs.InnerText));
+
+                    foreach (var item in tab)
+                    {
+                        string x = item.Split('-')[0];
+                        string y = item.Split('-')[1];
+                        string w = item.Split('-')[2].Split('=')[0];
+                        string result = item.Split('=')[1];
+
+                        dbProccess.saveData(dbConnection.conn, "TB_TrueTable", "TT_X, TT_Y, TT_W, TT_Result, TT_CircutID", $"{x}, {y}, {w}, {result}, {Convert.ToInt32(pid)}");
+                    }
+                    tData = dbProccess.readData(dbConnection.conn, "TB_TrueTable", $"TT_CircutID = {pid}");
+                }
+
+                if (Convert.ToInt32(lbl_PostInputs.InnerText) >= 2)
+                {
+                    List<string> tab = ccTrueTable.tTable(pid, Convert.ToInt32(lbl_PostInputs.InnerText));
+
+                    foreach (var item in tab)
+                    {
+                        string x = item.Split('-')[0];
+                        string y = item.Split('-')[1].Split('=')[0];
+                        string result = item.Split('=')[1];
+
+                        dbProccess.saveData(dbConnection.conn, "TB_TrueTable", "TT_X, TT_Y, TT_Result, TT_CircutID", $"{x}, {y}, {result}, {Convert.ToInt32(pid)}");
+                    }
+                    tData = dbProccess.readData(dbConnection.conn, "TB_TrueTable", $"TT_CircutID = {pid}");
                 }
             }
         }

@@ -108,12 +108,12 @@ namespace SLCD.classes.circut
                             }
                         }
 
-                        if (data["IN_IsAND"] != null)
+                        if (data["IN_IsAND"].ToString() != "")
                         {
                             twiName = data["IN_Name"].ToString();
                             twiOP = 0;
                         }
-                        else if (data["IN_IsOR"] != null)
+                        else if (data["IN_IsOR"].ToString() != "")
                         {
                             twiName = data["IN_Name"].ToString();
                             twiOP = 1;

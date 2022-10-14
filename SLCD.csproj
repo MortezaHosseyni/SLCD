@@ -100,6 +100,7 @@
   <ItemGroup>
     <Compile Include="classes\circut\ccOp.cs" />
     <Compile Include="classes\circut\ccProcess.cs" />
+    <Compile Include="classes\circut\ccTrueTable.cs" />
     <Compile Include="classes\database\dbConnection.cs" />
     <Compile Include="classes\database\dbProccess.cs" />
     <Compile Include="designer\design\circutformul.aspx.cs">

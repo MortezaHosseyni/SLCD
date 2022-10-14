@@ -85,6 +85,8 @@
   <ItemGroup>
     <Content Include="designer\css\bootstrap.min.css" />
     <Content Include="designer\css\style.css" />
+    <Content Include="designer\design\circutformul.aspx" />
+    <Content Include="designer\design\circutinfo.aspx" />
     <Content Include="designer\home.aspx" />
     <Content Include="designer\img\copy.png" />
     <Content Include="designer\img\logic.png" />
@@ -100,6 +102,20 @@
     <Compile Include="classes\circut\ccProcess.cs" />
     <Compile Include="classes\database\dbConnection.cs" />
     <Compile Include="classes\database\dbProccess.cs" />
+    <Compile Include="designer\design\circutformul.aspx.cs">
+      <DependentUpon>circutformul.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="designer\design\circutformul.aspx.designer.cs">
+      <DependentUpon>circutformul.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="designer\design\circutinfo.aspx.cs">
+      <DependentUpon>circutinfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="designer\design\circutinfo.aspx.designer.cs">
+      <DependentUpon>circutinfo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="designer\home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

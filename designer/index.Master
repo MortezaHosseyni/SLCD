@@ -63,6 +63,7 @@
                 </div>
 
                 <% } %>
+                <a class="list-group-item active mt-4" href="../designer/design/circutinfo.aspx" target="_blank">Design Circut</a>
             </div>
         </div>
 
